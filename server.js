@@ -59,7 +59,7 @@ const MODEL_MAPPING = {
   'gemini-turbo': 'meta/llama-3.3-70b-instruct',
   'gemini-turbo?': 'abacusai/dracarys-llama-3.1-70b-instruct',
   'gpt-3.5o': 'nvidia/nemotron-mini-4b-instruct',
-  'gpt-4-flash': 'deepseek-ai/deepseek-v4-flash',
+  'gpt-4-flash': 'deepseek-ai/deepseek-v4.1-flash',
   'glm-5-3-flash': 'z-ai/glm-5.3-flash',
   'mistral': 'mistralai/mistral-large-3-675b-instruct-2512',
   'mistral-turbo': 'mistralai/mistral-medium-3.5-128b',
@@ -289,7 +289,7 @@ app.post('/v1/chat/completions', async (req, res) => {
       stream
     } = req.body;
 
-    const primaryModel = MODEL_MAPPING[model] || 'z-ai/glm-5.3-flash';
+    const primaryModel = MODEL_MAPPING[model] || 'deepseek-ai/deepseek-v4.1-flash';
     const modelChain = [primaryModel];
 
     const baseRequest = {
