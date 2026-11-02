@@ -61,7 +61,7 @@ const MODEL_MAPPING = {
   'gpt-3.5o': 'nvidia/nemotron-mini-4b-instruct',
   'gpt-4-flash': 'deepseek-ai/deepseek-v4.1-flash',
   'glm-5-3-flash': 'z-ai/glm-5.3-flash',
-  'mistral': 'mistralai/Mistral Large 4',
+  'mistral': 'mistralai/mistral-large-4',
   'mistral-turbo': 'mistralai/mistral-medium-3.5-128b',
   'mistral-pro': 'mistralai/mistral-small-4-119b-2603',
   'mistral-nemo': 'mistralai/mistral-nemotron',
@@ -289,7 +289,7 @@ app.post('/v1/chat/completions', async (req, res) => {
       stream
     } = req.body;
 
-    const primaryModel = MODEL_MAPPING[model] || 'mistralai/Mistral Large 4';
+    const primaryModel = MODEL_MAPPING[model] || 'mistralai/mistral-large-4';
     const modelChain = [primaryModel];
 
     const baseRequest = {
